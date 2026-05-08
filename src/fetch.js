@@ -1,7 +1,7 @@
 const API_KEY = "CWKX7FE9ENF5WTUYVUPRQEYKL";
 
 async function fetchData(location) {
-    const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?include=days&elements=datetime,tempmax,tempmin,icon,precipprob&key=${API_KEY}`;
+    const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?include=days&elements=datetime,temp,description,icon,precipprob&key=${API_KEY}`;
 
     try {
         const request = await fetch(url);
