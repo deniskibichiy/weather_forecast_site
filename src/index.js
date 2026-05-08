@@ -4,7 +4,7 @@ import "./style.css";
 const API_KEY = "CWKX7FE9ENF5WTUYVUPRQEYKL";
 
 async function fetchData(location) {
-    const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?key=${API_KEY}`;
+    const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?include=days,current&&elements=tempmax,tempmin,icon,precipprob&key=${API_KEY}`;
 
     try {
         const request = await fetch(url);
@@ -21,7 +21,13 @@ async function fetchData(location) {
 }
 
 
+async function processData (place) {
+    const data = await fetchData(place);
+    console.log(data.days);
+    //
+}
 
+processData("Kabiyet");
 
 
 
