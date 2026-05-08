@@ -7,12 +7,13 @@ import clearDay from "./icons/clear-day.png";
 function displayWeather(forecast) {
     //render today's weather
     const currentContainer = document.querySelector("#today");
+    currentContainer.textContent = "";
     const currentDay = document.createElement("h2");
     const currentIcon = document.createElement("img");
     const currentTemperature = document.createElement("p");
     const todayDescription = document.createElement("p");
     const today = forecast[0];
-    currentDay.textContent = new Date(today.datetime).toLocaleDateString("en-US", { weekday: "long" });
+    currentDay.textContent = `${today.datetime}(${today.dayName})`;
     switch (today.icon) {
             case "rain":
                 currentIcon.src = rainy;
@@ -27,13 +28,14 @@ function displayWeather(forecast) {
                 currentIcon.src = clearDay;
                 break;
         }
-    todayDescription.textContent = today.description;
-    currentTemperature.textContent = today.temp;
+    todayDescription.textContent = `Summary: ${today.description}`;
+    currentTemperature.textContent = `Temp: ${today.temp}`;
     currentContainer.appendChild(currentDay);
     currentContainer.appendChild(todayDescription);
     currentContainer.appendChild(currentIcon);
 
     const weeklyPredictionContainer = document.querySelector(".weekly");
+    weeklyPredictionContainer.textContent = "";
     forecast.forEach(element => {
         const predictedDayDiv = document.createElement("div");
         const dayOfTheWeek = document.createElement("h2");
@@ -55,8 +57,8 @@ function displayWeather(forecast) {
                 predictedIcon.src = clearDay;
                 break;
         };
-        predictedPrecip.textContent = element.precipprob;
-        predictedTemperature.textContent = element.temp;
+        predictedPrecip.textContent = `Rain: ${element.precipprob}`;
+        predictedTemperature.textContent = `Temp: ${element.temp}`;
 
         predictedDayDiv.appendChild(dayOfTheWeek);
         predictedDayDiv.appendChild(predictedIcon);
