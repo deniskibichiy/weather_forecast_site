@@ -27,11 +27,8 @@ async function processData (place) {
             ...day,
             dayName:date.toLocaleDateString("en-US", {weekday: "long"})
         };
-    })
-    console.log(newFormattedDays);
-    
+    })   
+    return newFormattedDays;
 }
-
-
 
 export{processData}
