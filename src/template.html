@@ -6,20 +6,30 @@
     <title>Weather Forecast Site</title>
 </head>
 <body>
-    <h1>Weather Forecast Site</h1>
-    <div class="form">
-        <form action="">
-            <label for="location">Input Location</label><br>
-            <input id="location" type="text"> <br>
-            <button id="search-button" type="button">Search</button>
-        </form>
-    </div>
-    <h2><span id="place"></span></h2>
-    <div id="today">
-
-    </div>
-     <h2>Weekly Forecast</h2>
-    <div class="weekly">
+    <div class="wrapper">
+        <div class="hero">
+            <h1>How is the sky looking today?</h1>
+            <div class="form">
+                <form action="">
+                    <input placeholder="Search for a place" id="location" type="text"> <br>
+                    <button id="search-button" type="button">Search</button>
+                </form>
+            </div>
+        </div>
+        <div id="today">
+            <div class="content">
+                <span id="resolved-adress"></span><br>
+                <span id="date"></span>
+            </div>
+            <div class="icon-temp">
+                <img id="today-icon" alt="">
+                <div class="temp-today-icon">
+                    <span id="temp-today"></span><span>&deg;</span>
+                </div>
+            </div>
+        </div>
+        <div class="weekly">
+        </div>
     </div>
 </body>
 </html>

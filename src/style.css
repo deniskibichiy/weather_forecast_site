@@ -1,12 +1,79 @@
 body {
-    background-color: none;
+    background-color: hsl(243, 96%, 9%);
+    max-width: 1440px;
+    font-size: 18px;
+    color: hsl(0, 0%, 100%);
+
 }
 
 .weekly {
     display: flex;
     gap: 10px;
+    grid-area: 3/1/4/5;
 }
 
 .weekly div {
-    border: 1px solid red;
+    background-color: hsl(243, 23%, 24%);
+    border-radius: 5PX;
+    padding: 10PX;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Today Styling*/
+
+#today {
+    background-color: hsl(233, 67%, 56%);
+    border-radius: 10px;
+    width: 500px;
+    padding: 20px;
+    height: auto;
+    grid-area: 2/1/2/3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.icon-temp {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+
+
+/* The overall grid layout styling*/
+
+.wrapper {
+    display: grid;
+     grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr 0.5fr 1fr;
+    margin: 0;
+    gap: 5px;
+}
+
+p {
+    font-size: 14px;
+}
+
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.hero form {
+    display: flex;
+    gap: 10px;
+}
+
+
+img {
+    width: 40px;
+    height: auto;
 }

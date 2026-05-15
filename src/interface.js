@@ -7,13 +7,12 @@ import clearDay from "./icons/clear-day.png";
 function displayWeather(forecast) {
     //render today's weather
     const currentContainer = document.querySelector("#today");
-    currentContainer.textContent = "";
-    const currentDay = document.createElement("h2");
-    const currentIcon = document.createElement("img");
-    const currentTemperature = document.createElement("p");
-    const todayDescription = document.createElement("p");
+    //currentContainer.textContent = "";
+    const currentDay = document.querySelector("#date");
+    const currentIcon = document.querySelector("#today-icon");
+    const currentTemperature = document.querySelector("#temp-today");
     const today = forecast[0];
-    currentDay.textContent = `${today.datetime}(${today.dayName})`;
+    currentDay.textContent = `${today.dayName}, ${today.datetime}`;
     switch (today.icon) {
             case "rain":
                 currentIcon.src = rainy;
@@ -28,17 +27,15 @@ function displayWeather(forecast) {
                 currentIcon.src = clearDay;
                 break;
         }
-    todayDescription.textContent = `Summary: ${today.description}`;
-    currentTemperature.textContent = `Temp: ${today.temp}`;
+    currentTemperature.textContent = `${today.temp}`;
     currentContainer.appendChild(currentDay);
-    currentContainer.appendChild(todayDescription);
     currentContainer.appendChild(currentIcon);
 
     const weeklyPredictionContainer = document.querySelector(".weekly");
     weeklyPredictionContainer.textContent = "";
     forecast.forEach(element => {
         const predictedDayDiv = document.createElement("div");
-        const dayOfTheWeek = document.createElement("h2");
+        const dayOfTheWeek = document.createElement("p");
         const predictedIcon = document.createElement("img");
         const predictedPrecip = document.createElement("p");
         const predictedTemperature = document.createElement("p");
