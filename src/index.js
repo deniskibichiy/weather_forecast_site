@@ -6,20 +6,19 @@ const button = document.querySelector("#search-button");
 const userLocation = document.querySelector("#location");
 const placeSearched = document.querySelector("#resolved-adress");
 
-
 button.addEventListener("click", showWeather);
 
 async function showWeather() {
-    const searchedLocation = userLocation.value;
-    const forecast = await processData(searchedLocation);
-    const dailyHourly = forecast.hourlyData;
-    const resolvedPlace = forecast.resolvedAddress;
-    console.log(forecast.newFormattedDays[0]);
-    const weeklyData = forecast.newFormattedDays.slice(0,7);
-    console.log(weeklyData[0]);
-    placeSearched.textContent = resolvedPlace;
-    displayWeather(weeklyData);
-};
+  const searchedLocation = userLocation.value;
+  const forecast = await processData(searchedLocation);
+  const dailyHourly = forecast.hourlyData;
+  const resolvedPlace = forecast.resolvedAddress;
+  console.log(forecast.newFormattedDays[0]);
+  const weeklyData = forecast.newFormattedDays.slice(0, 7);
+  console.log(weeklyData[0]);
+  placeSearched.textContent = resolvedPlace;
+  displayWeather(weeklyData);
+}
 
 const hourlyWeather = [
   {
@@ -95,4 +94,3 @@ const hourlyWeather = [
     icon: "rain",
   },
 ];
-
