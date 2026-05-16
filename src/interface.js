@@ -7,11 +7,12 @@ import clearDay from "./icons/clear-day.png";
 function displayWeather(forecast) {
     //render today's weather
     const currentContainer = document.querySelector("#today");
-    //currentContainer.textContent = "";
+    currentContainer.classList.remove("hidden");
     const currentDay = document.querySelector("#date");
     const currentIcon = document.querySelector("#today-icon");
     const currentTemperature = document.querySelector("#temp-today");
     const today = forecast[0];
+    console.log(forecast[0].hours);
     currentDay.textContent = `${today.dayName}, ${today.datetime}`;
     switch (today.icon) {
             case "rain":
@@ -28,8 +29,16 @@ function displayWeather(forecast) {
                 break;
         }
     currentTemperature.textContent = `${today.temp}`;
-    currentContainer.appendChild(currentDay);
-    currentContainer.appendChild(currentIcon);
+    //currentContainer.appendChild(currentDay);
+    //currentContainer.appendChild(currentIcon);
+
+    //Hourly prediction render
+
+    const hourlyContainer = document.querySelector(".hourly");
+    const todayHourly = forecast[0].hours;
+    todayHourly.forEach(element => {
+        
+    });
 
     const weeklyPredictionContainer = document.querySelector(".weekly");
     weeklyPredictionContainer.textContent = "";
